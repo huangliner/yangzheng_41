@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			table{
+				background: red;
+				margin: 0 auto;
+			}
+			td{
+				width: 120px;
+				height: 50px;
+				background:#AED8E6;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function  () {
+				var tab=document.getElementsByTagName('table')[0];
+				var imgs=['url(img/2.jpg)','url(img/4.jpg)','url(img/5.jpg)','url(img/8.jpg)','url(img/9.jpg)','url(img/10.jpg)','url(img/11.jpg)','url(img/12.jpg)','url(img/13.jpg)','url(img/14.jpg)']
+				tab.rows[0].cells[0].style.background='red'
+				tab.rows[0].cells[1].style.backgroundImage=imgs[0];
+				
+				var i=0,ft=true,tf=true,z=0;
+				
+				function dd () {
+					var j=i==0 ? tab.rows.length-1:i-1;
+					var c=i<=0&&tf==false ? 2:1;
+					var d=j<=0&&tf==false ? 2:1;
+					
+					tab.rows[j].cells[ft ? 0:d].style.background='#AED8E6';
+					tab.rows[i++].cells[tf ? 0:c].style.background='red';
+					tab.rows[0].cells[1].style.backgroundImage=imgs[z];
+					z=z>=imgs.length-1 ? 0:z+=1;
+					if (i>=5) {
+						i=0;
+						tf=tf ? false:true;
+					}
+					ft=i==0 ? !tf:tf;
+				}
+				
+				setInterval(dd,1000)
+			}
+				
+		</script>
+	</head>
+	<body>
+		<table border="0" cellspacing="" cellpadding="">
+			<tr>
+				<td>图片一</td>
+				<td rowspan="5" style="width: 440px;height: 440px;"></td>
+				<td>图片六</td>
+			</tr>
+			<tr>
+				<td>图片二</td>
+				<td>图片七</td>
+			</tr>
+			<tr>
+				<td>图片三</td>
+				<td>图片八</td>
+			</tr>
+			<tr>
+				<td>图片四</td>
+				<td>图片九</td>
+			</tr>
+			<tr>
+				<td>图片五</td>
+				<td>图片十</td>
+			</tr>
+		</table>
+	</body>
+</html>
