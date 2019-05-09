@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			div{
+				font-size:32px ;
+				text-align: center;
+			}
+			span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="pan">
+			
+		</div>
+		<script type="text/javascript">
+			var datex=new Date('2019-05-15 00:00:00');
+			
+			function $ (id) {
+				return document.getElementById(id);
+			}
+			var pan=$('pan');
+			function dd () {
+				var c=datex.getTime()-(new Date).getTime();
+				var tian=Math.floor(c/1000/60/60/24)>10 ? Math.floor(c/1000/60/60/24):'0'+Math.floor(c/1000/60/60/24);
+				var shi=Math.floor(c/1000/60/60%24)>10 ? Math.floor(c/1000/60/60%24):'0'+Math.floor(c/1000/60/60%24);
+				var fen=Math.floor(c/1000/60%60)>10 ? Math.floor(c/1000/60%60):'0'+Math.floor(c/1000/60%60);
+				var miao=Math.floor(c/1000%60)>10 ? Math.floor(c/1000%60):'0'+Math.floor(c/1000%60);
+				pan.innerHTML='距离2019年5月15日还剩<span>'+tian+'</span>天<span>'+shi+'</span>时<span>'+fen+'</span>分<span>'+miao+'</span>秒';
+			}
+			setInterval(dd,10)
+		</script>
+	</body>
+</html>
