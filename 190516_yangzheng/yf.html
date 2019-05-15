@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.big{
+			width: 1000px;
+			height: 250px;
+			margin: 0 auto;
+			border: 1px solid black;
+		}
+		ul{
+			width:1000px;
+			height: 50px;
+		}
+		li{
+			float: left;
+			list-style: none;
+			width: 200px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border-bottom:1px solid black;
+			background: gainsboro;
+		}
+		#dd{
+			text-align: center;
+		}
+		#dd p{
+			width: 500px;
+			float: left;
+			text-align: center;
+		}
+		p:nth-child(-n+2){
+			margin-top: 50px;
+		}
+		p:nth-child(n+3){
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="big">
+		<ul>
+			<li>公告</li>
+			<li>规则</li>
+			<li>论坛</li>
+			<li>安全</li>
+			<li>工艺</li>
+		</ul>
+	
+		
+		<div id="dd">
+			<p>数据七夕：金牛爱送玫瑰</p>
+			<p>阿里打造"互联网监管"</p>
+			<p>10万家店60万新品</p>
+			<p>全球最大网上时装周</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+			var ps=document.getElementsByTagName('p');
+			var li=document.getElementsByTagName('li');
+			var ul=document.getElementsByTagName('ul')[0];
+			var div=document.getElementsByTagName('div')[0];
+			
+			var p1=['数据七夕：金牛爱送玫瑰','阿里打造"互联网监管"','10万家店60万新品','全球最大网上时装周'];
+			var p2=['"全额返现"要管控啦','炒信规则调整意见反馈','淘宝新规发布汇总((7月)','质量相关规则近期变更'];
+			var p3=['接次文件，毁了一家店','新版阿里110上线了','联号安全神器阿里钱盾','卖家学违禁通免被处罚'];
+			var p4=['数据七夕:金牛爱送玫瑰','10万家店60万新品','阿里打造"互联网监管"','全球品大网上时装周'];
+			var p5=['"全额返现"要管控啦','炒信规则调整意见反馈','淘宝新规发布汇总','质量相关规则近期变更'];
+			var p=[p1,p2,p3,p4,p5];
+			
+			li[0].style.background='#ffffff';
+			li[0].style.borderBottom='none';
+			ul.style.width=1001+'px';
+			div.style.width=1002+'px'
+			li[0].style.borderRight='1px solid black';
+			function nn() {
+				li[0].style.background='gainsboro'
+				li[0].style.borderBottom='1px solid black';
+				ul.style.width=1000+'px';
+				div.style.width=1000+'px'
+				li[0].style.borderRight='none';
+			}
+			
+			for (var i=0,len=li.length;i<len;i++) {
+				li[i].index=i;
+				li[i].onmousemove=function () {
+					this.style.background='#ffffff'
+					if (this.index==0) {
+						this.style.borderBottom='none';
+						ul.style.width=1001+'px';
+						div.style.width=1002+'px'
+						this.style.borderRight='1px solid black';
+					}else if (this.index==4) {
+						nn()
+						this.style.borderBottom='none';
+						ul.style.width=1001+'px';
+						div.style.width=1002+'px'
+						this.style.borderLeft='1px solid black';
+					}else{
+						nn()
+						this.style.borderBottom='none';
+						ul.style.width=1002+'px';
+						div.style.width=1003+'px'
+						this.style.borderRight='1px solid black';
+						this.style.borderLeft='1px solid black';
+					}
+					for(var j=0,lens=ps.length;j<lens;j++){
+						ps[j].innerHTML=p[this.index][j];
+					}
+					
+				}
+				li[i].onmouseout=function () {
+					this.style.background='gainsboro'
+					if (this.index==0) {
+						nn()
+					}else if (this.index==4) {
+						this.style.borderBottom='1px solid black';
+						ul.style.width=1000+'px';
+						div.style.width=1000+'px'
+						this.style.borderLeft='none';
+					}else{
+						this.style.borderBottom='1px solid black';
+						ul.style.width=1000+'px';
+						div.style.width=1000+'px'
+						this.style.borderRight='none';
+						this.style.borderLeft='none';
+					}
+				}
+			}
+			
+		
+		
+	</script>
+</body>
+</html>
