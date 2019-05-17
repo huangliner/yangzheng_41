@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			#div div{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div" style="width: 900px;height: 900px;">
+			
+		</div>
+		<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function getRandomInt(min, max) {
+  				min = Math.ceil(min);
+  				max = Math.floor(max);
+  				return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+			}
+			var div=document.getElementById('div');
+			
+			function dd () {}
+			dd.prototype.init=function  () {
+				var draw=document.createElement('div');
+				draw.style.width=20+'px';
+				draw.style.height=20+'px';
+				draw.style.backgroundColor='rgb('+getRandomInt(0,255)+','+getRandomInt(0,255)+','+getRandomInt(0,255)+')';
+				draw.style.left=getRandomInt(0,parseInt(div.style.width))+'px';
+				draw.style.top=getRandomInt(0,parseInt(div.style.height))+'px';
+				div.appendChild(draw);
+			}
+			
+			setInterval(function  () {
+				for (var i=0;i<=10;i++) {
+					(new dd()).init();
+					var cc=document.getElementsByTagName('div')
+					if (cc.length>11) {
+						div.removeChild(cc[1])
+					}
+				}
+			},1000)
+			
+			
+		</script>
+	</body>
+</html>
