@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div{
+				width: 400px;
+				height: 85px;
+				position: relative;
+				left: 450px;
+				top: 200px;
+			}
+			#div img{
+				position: absolute;
+				right: 0px;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				~~function (){
+					var imgs=document.getElementsByTagName('img');
+					var div=document.getElementById('div');
+					var z=0;
+					setInterval(function(){
+						z++;
+						z%=20;
+						for(var i=0;i<imgs.length;i++){
+							imgs[i].style.display='none';
+						};
+						imgs[z].style.display='block';
+					},200);
+				}()
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div">
+			<img src="img/8.png">
+			<img src="img/7.png" style="margin: 0 20px;">
+			<img src="img/6.png" style="margin: 0 40px;">
+			<img src="img/5.png" style="margin: 0 60px;">
+			<img src="img/4.png" style="margin: 0 80px;">
+			<img src="img/3.png" style="margin: 0 100px;">
+			<img src="img/2.png" style="margin: 0 120px;">
+			<img src="img/1.png" style="margin: 0 140px;">
+			<img src="img/8.png" style="margin: 0 160px;">
+			<img src="img/7.png" style="margin: 0 180px;">
+			<img src="img/6.png" style="margin: 0 200px;">
+			<img src="img/5.png" style="margin: 0 220px;">
+			<img src="img/4.png" style="margin: 0 240px;">
+			<img src="img/3.png" style="margin: 0 260px;">
+			<img src="img/2.png" style="margin: 0 280px;">
+			<img src="img/1.png" style="margin: 0 300px;">
+			<img src="img/8.png" style="margin: 0 320px;" >
+			<img src="img/7.png" style="margin: 0 340px;">
+			<img src="img/6.png" style="margin: 0 360px;">
+			<img src="img/5.png" style="margin: 0 380px;">
+		</div>
+	</body>
+</html>
